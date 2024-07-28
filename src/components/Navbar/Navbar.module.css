@@ -1,0 +1,20 @@
+.nav {
+    grid-area: n;
+    background-color: green;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.item {
+    color: #FFFFFF;
+}
+
+.item a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.item a:active,
+.item a:focus{
+    color: gold;
+}

@@ -1,0 +1,21 @@
+.input_field {
+    width: 100%;
+    border-radius: 10px;
+    height: 5em;
+    background-color: gainsboro;
+    border: none;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.send_btn {
+    background-color: green;
+    color: white;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    margin-top: 0.5em;
+}
+
+.form_post {
+    text-align: end;
+}

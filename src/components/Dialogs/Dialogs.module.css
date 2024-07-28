@@ -1,0 +1,12 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsList {
+    border-right: 2px solid gray;
+}
+
+.messages {
+    margin-top: 1em;
+}
