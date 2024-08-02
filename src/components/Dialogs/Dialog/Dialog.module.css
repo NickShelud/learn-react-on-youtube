@@ -2,3 +2,13 @@
     margin-bottom: 1em;
     position: relative;
 }
+
+.dialog a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.dialog a:active,
+.dialog a:focus{
+    color: gold;
+}
