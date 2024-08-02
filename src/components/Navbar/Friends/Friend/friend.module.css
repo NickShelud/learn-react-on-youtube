@@ -1,0 +1,17 @@
+.friend_avatar {
+    background-color: orange;
+    border-radius: 100%;
+    width: 2em;
+    height: 2em;
+    margin: auto;
+}
+
+.friend a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.friend a:active,
+.friend a:focus{
+    color: gold;
+}

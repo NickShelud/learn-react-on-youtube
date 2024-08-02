@@ -3,7 +3,7 @@ import s from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import PersonalData from "./PersonalData/PersonalData";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className={s.content}>
             <img src="https://www.shutterstock.com/shutterstock/photos/2160328801/display_1500/stock-vector-abstract-modern-blue-horizontal-banner-background-with-geometric-diagonal-overlay-layer-and-glowing-2160328801.jpg" alt=""/>
@@ -11,8 +11,7 @@ const Profile = () => {
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEuzMKcfhq-9lx6EIotT-jkSo8QGAsO6Hfnw&s" alt=""/>
                 <PersonalData />
             </div>
-
-            <MyPosts />
+            <MyPosts posts={props.state.posts}/>
         </div>
     )
 }

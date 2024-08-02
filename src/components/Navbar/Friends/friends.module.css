@@ -1,0 +1,13 @@
+.friends {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.friends_title_block {
+    font-size: 2em;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
