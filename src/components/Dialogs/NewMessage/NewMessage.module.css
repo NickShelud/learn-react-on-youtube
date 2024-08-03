@@ -23,3 +23,7 @@
     flex-direction: column;
     align-items: end;
 }
+
+.form_post {
+    margin: 0 1em;
+}
