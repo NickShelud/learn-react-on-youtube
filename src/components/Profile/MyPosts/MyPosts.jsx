@@ -13,7 +13,7 @@ const MyPosts = (props) => {
     return (
         <div>
             <p className={s.title_posts_block}>My posts</p>
-            <NewPost />
+            <NewPost addPost={props.addPost} />
 
             <div className={s.posts}>
                 { posts }

@@ -1,9 +1,9 @@
 let state = {
     profile: {
         posts: [
-            {message: 'Hi, how are you?', likeCount: 5},
-            {message: "It's my first post", likeCount: 10},
-            {message: "Test post", likeCount: 15},
+            {id: 1, message: 'Hi, how are you?', likeCount: 5},
+            {id: 2, message: "It's my first post", likeCount: 10},
+            {id: 3, message: "Test post", likeCount: 15},
         ]
     },
 
@@ -31,6 +31,17 @@ let state = {
             {name: 'Alex', id: 3},
         ]
     }
+}
+
+export let addPost = (postMessage) => {
+
+    let newPost = {
+        id: 4,
+        message: postMessage,
+        likeCount: 0,
+    }
+
+    state.profile.posts.push(newPost);
 }
 
 export default state;
