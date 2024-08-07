@@ -13,7 +13,7 @@ const MyPosts = (props) => {
     return (
         <div>
             <p className={s.title_posts_block}>My posts</p>
-            <NewPost addPost={props.addPost} />
+            <NewPost addPost={props.addPost} newPostText={props.newPostText} updateTextarea={props.updateTextarea}/>
 
             <div className={s.posts}>
                 { posts }

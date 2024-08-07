@@ -1,10 +1,16 @@
+import ReactDOM from "react-dom/client";
+import React from "react";
+import App from "../App";
+import {renererEntireTree} from "../render";
+
 let state = {
     profile: {
         posts: [
             {id: 1, message: 'Hi, how are you?', likeCount: 5},
             {id: 2, message: "It's my first post", likeCount: 10},
             {id: 3, message: "Test post", likeCount: 15},
-        ]
+        ],
+        newPostText: ''
     },
 
     dialogs: {
@@ -21,7 +27,9 @@ let state = {
             {message: "i'm fine. And you?"},
             {message: "I'm good"},
             {message: "test message"},
-        ]
+        ],
+
+        newMessage: ''
     },
 
     navbar: {
@@ -33,15 +41,41 @@ let state = {
     }
 }
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
 
     let newPost = {
         id: 4,
-        message: postMessage,
+        message: state.profile.newPostText,
         likeCount: 0,
     }
 
     state.profile.posts.push(newPost);
+    state.profile.newPostText = '';
+
+    renererEntireTree(state)
+}
+
+export let updateTextarea = (newText) => {
+    state.profile.newPostText = newText;
+
+    renererEntireTree(state)
+}
+
+export let addNewMessage = () => {
+    let newMessage = {
+        message: state.dialogs.newMessage
+    }
+
+    state.dialogs.messages.push(newMessage);
+    state.dialogs.newMessage = '';
+
+    renererEntireTree(state)
+}
+
+export let updateMessageField = (newMessage) => {
+    state.dialogs.newMessage = newMessage;
+
+    renererEntireTree(state)
 }
 
 export default state;

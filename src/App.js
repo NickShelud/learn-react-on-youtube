@@ -8,6 +8,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
+import {addNewMessage, updateMesageField} from "./redux/state";
+import React from "react";
 
 const App = (props) => {
     return (
@@ -17,8 +19,16 @@ const App = (props) => {
                 <Navbar state={props.state.navbar} />
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path='/dialogs/*' element={<Dialogs state={props.state.dialogs}/>}/>
-                        <Route path='/profile' element={<Profile state={ props.state.profile } addPost={props.addPost} />}/>
+                        <Route path='/dialogs/*' element={<Dialogs
+                            state={props.state.dialogs}
+                            addMessage = {props.addMessage}
+                            updateMessageField = {props.updateMessageField}
+                        />}/>
+                        <Route path='/profile' element={<Profile
+                            state={ props.state.profile }
+                            addPost={props.addPost}
+                            updateTextarea={props.updateTextarea}
+                        />}/>
                         <Route path='/news' element={<News />}/>
                         <Route path='/music' element={<Music />}/>
                         <Route path='/settings' element={<Settings />}/>

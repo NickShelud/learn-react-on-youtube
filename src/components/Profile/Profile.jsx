@@ -11,7 +11,12 @@ const Profile = (props) => {
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEuzMKcfhq-9lx6EIotT-jkSo8QGAsO6Hfnw&s" alt=""/>
                 <PersonalData />
             </div>
-            <MyPosts posts={props.state.posts} addPost={props.addPost}/>
+            <MyPosts
+                posts={props.state.posts}
+                addPost={props.addPost}
+                newPostText={props.state.newPostText}
+                updateTextarea={props.updateTextarea}
+            />
         </div>
     )
 }
