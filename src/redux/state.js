@@ -1,7 +1,8 @@
-import ReactDOM from "react-dom/client";
 import React from "react";
-import App from "../App";
-import {renererEntireTree} from "../render";
+
+let renererEntireTree = () => {
+    console.log('tree changed')
+}
 
 let state = {
     profile: {
@@ -76,6 +77,10 @@ export let updateMessageField = (newMessage) => {
     state.dialogs.newMessage = newMessage;
 
     renererEntireTree(state)
+}
+
+export const subscribe = (observer) => {
+    renererEntireTree = observer;
 }
 
 export default state;
