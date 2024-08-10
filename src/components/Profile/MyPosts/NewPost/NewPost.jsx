@@ -21,7 +21,6 @@ const NewPost = (props) => {
         let text = newPostElement.current.value;
 
         props.updateTextarea(text);
-        console.log(text);
     }
 
     return (
