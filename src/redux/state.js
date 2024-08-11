@@ -70,9 +70,6 @@ let store = {
         this._state.dialogs.newMessage = newMessage;
         this.renererEntireTree(this._state)
     },
-    subscribe(observer)  {
-        this.renererEntireTree = observer;
-    },
 
     dispatch(action) {
         if(action.type === 'ADD-POST') {
@@ -83,8 +80,6 @@ let store = {
             this._addNewMessage()
         } else if (action.type === 'UPDATE-MESSAGE-FIELD') {
             this._updateMessageField(action.newMessage)
-        } else if (action.type === 'SUBSCRIBE') {
-            this._subscribe()
         }
     }
 
