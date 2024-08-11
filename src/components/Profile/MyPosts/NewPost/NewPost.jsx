@@ -1,26 +1,19 @@
 import React from "react";
 import s from './NewPost.module.css'
 
-
-
-
-
 const NewPost = (props) => {
 
     let newPostElement = React.createRef();
 
-    // let addNewPost = () => {
-    //     let text = newPostElement.current.value;
-    //
-    //     if (typeof props.addPost === 'function') {
-    //         props.addPost(text);
-    //     }
-    // }
+    let addNewPost = () => {
+        let text = newPostElement.current.value;
+        props.dispatch({type: 'ADD-POST', newPost: text});
+    }
 
     let onChangeTextarea = () => {
         let text = newPostElement.current.value;
-
-        props.updateTextarea(text);
+        let action = {type: 'UPDATE-TEXTAREA', newText: text}
+        props.dispatch(action);
     }
 
     return (
@@ -31,7 +24,7 @@ const NewPost = (props) => {
                 className={s.input_field}
                 type="text" placeholder='your message'
                 value={props.newPostText}/>
-            <div onClick={ props.addPost } className={s.send_btn} type="submit">
+            <div onClick={ addNewPost } className={s.send_btn} type="submit">
                 SEND
             </div>
         </div>

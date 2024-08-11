@@ -12,10 +12,7 @@ let renererEntireTree = () => {
         <React.StrictMode>
             <App
                 state={store.getState(store)}
-                addPost={store.addPost.bind(store)}
-                updateTextarea={store.updateTextarea.bind(store)}
-                addMessage = {store.addNewMessage.bind(store)}
-                updateMessageField = {store.updateMessageField.bind(store)}
+                dispatch={store.dispatch.bind(store)}
             />
         </React.StrictMode>
     );

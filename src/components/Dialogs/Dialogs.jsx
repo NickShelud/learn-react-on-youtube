@@ -7,7 +7,7 @@ import NewMessage from "./NewMessage/NewMessage";
 const Dialogs = (props) => {
     let dialogs = props.state.dialog.map(dialog => <Dialog dialogWith={dialog.name} id={dialog.id} />)
     let messages = props.state.messages.map(message => <Message message={message.message}/>)
-console.log(props)
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsList}>
@@ -18,9 +18,8 @@ console.log(props)
                 { messages }
 
                 <NewMessage
-                    addMessage = {props.addMessage}
-                    updateMessageField = {props.updateMessageField}
-                    newMessageText = {props.state.newMessage}
+                    dispatch = {props.dispatch}
+                    newMessage = {props.state.newMessage}
                 />
             </div>
         </div>

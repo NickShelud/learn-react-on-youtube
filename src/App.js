@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
@@ -8,7 +7,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-import {addNewMessage, updateMesageField} from "./redux/state";
 import React from "react";
 
 const App = (props) => {
@@ -21,13 +19,11 @@ const App = (props) => {
                     <Routes>
                         <Route path='/dialogs/*' element={<Dialogs
                             state={props.state.dialogs}
-                            addMessage = {props.addMessage}
-                            updateMessageField = {props.updateMessageField}
+                            dispatch = {props.dispatch}
                         />}/>
                         <Route path='/profile' element={<Profile
                             state={ props.state.profile }
-                            addPost={props.addPost}
-                            updateTextarea={props.updateTextarea}
+                            dispatch = {props.dispatch}
                         />}/>
                         <Route path='/news' element={<News />}/>
                         <Route path='/music' element={<Music />}/>

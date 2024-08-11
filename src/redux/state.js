@@ -1,5 +1,3 @@
-import React from "react";
-
 let store = {
     _state: {
         profile: {
@@ -41,13 +39,10 @@ let store = {
     getState() {
         return this._state;
     },
-
     renererEntireTree() {
         console.log('tree changed')
     },
-
-    addPost() {
-
+    _addPost(props) {
         let newPost = {
             id: 4,
             message: this._state.profile.newPostText,
@@ -56,36 +51,43 @@ let store = {
 
         this._state.profile.posts.push(newPost);
         this._state.profile.newPostText = '';
-
         this.renererEntireTree(this._state)
     },
-
-    updateTextarea(newText) {
+    _updateTextarea(newText) {
         this._state.profile.newPostText = newText;
-
         this.renererEntireTree(this._state)
     },
-
-    addNewMessage() {
+    _addNewMessage() {
         let newMessage = {
             message: this._state.dialogs.newMessage
         }
 
         this._state.dialogs.messages.push(newMessage);
         this._state.dialogs.newMessage = '';
-
         this.renererEntireTree(this._state)
     },
-
-    updateMessageField(newMessage) {
+    _updateMessageField(newMessage) {
         this._state.dialogs.newMessage = newMessage;
-
         this.renererEntireTree(this._state)
     },
-
     subscribe(observer)  {
         this.renererEntireTree = observer;
+    },
+
+    dispatch(action) {
+        if(action.type === 'ADD-POST') {
+            this._addPost()
+        } else if (action.type === 'UPDATE-TEXTAREA') {
+            this._updateTextarea(action.newText)
+        } else if (action.type === 'ADD-NEW-MESSAGE') {
+            this._addNewMessage()
+        } else if (action.type === 'UPDATE-MESSAGE-FIELD') {
+            this._updateMessageField(action.newMessage)
+        } else if (action.type === 'SUBSCRIBE') {
+            this._subscribe()
+        }
     }
+
 
 
 }
