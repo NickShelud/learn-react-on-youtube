@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_TEXTAREA = 'UPDATE-TEXTAREA';
+const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
+const UPDATE_MESSAGE_FIELD = 'UPDATE-MESSAGE-FIELD';
+
 let store = {
     _state: {
         profile: {
@@ -71,6 +76,10 @@ let store = {
         this.renererEntireTree(this._state)
     },
 
+    subscribe(observer)  {
+        this.renererEntireTree = observer;
+    },
+
     dispatch(action) {
         if(action.type === 'ADD-POST') {
             this._addPost()
@@ -82,9 +91,13 @@ let store = {
             this._updateMessageField(action.newMessage)
         }
     }
-
-
-
 }
+
+export const addPostActionCreater = () => ({type: ADD_POST})
+export const updateTextareaActionCreater = (text) => ({type: UPDATE_TEXTAREA, newText: text})
+export const addNewMessageActionCreater = () => ({type: ADD_NEW_MESSAGE})
+export const updateMessageFieldActionCreater = (text) => ({type: UPDATE_MESSAGE_FIELD, newMessage: text})
+
+
 
 export default store;
