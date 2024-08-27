@@ -10,11 +10,12 @@ import Settings from "./components/Settings/Settings";
 import React from "react";
 
 const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className="app-wrapper">
                 <Header/>
-                <Navbar state={props.state.navbar} />
+                <Navbar state={ props.state.navbar } />
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path='/dialogs/*' element={<Dialogs

@@ -28,7 +28,7 @@ const Navbar = (props) => {
             </div>
 
             <div>
-                <Friends state={props.state.friends}/>
+                <Friends state={props.state}/>
             </div>
         </nav>
     )

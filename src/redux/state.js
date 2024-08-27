@@ -1,3 +1,7 @@
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import sidebarReducer from "./sidebarReducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXTAREA = 'UPDATE-TEXTAREA';
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
@@ -47,49 +51,17 @@ let store = {
     renererEntireTree() {
         console.log('tree changed')
     },
-    _addPost(props) {
-        let newPost = {
-            id: 4,
-            message: this._state.profile.newPostText,
-            likeCount: 0,
-        }
-
-        this._state.profile.posts.push(newPost);
-        this._state.profile.newPostText = '';
-        this.renererEntireTree(this._state)
-    },
-    _updateTextarea(newText) {
-        this._state.profile.newPostText = newText;
-        this.renererEntireTree(this._state)
-    },
-    _addNewMessage() {
-        let newMessage = {
-            message: this._state.dialogs.newMessage
-        }
-
-        this._state.dialogs.messages.push(newMessage);
-        this._state.dialogs.newMessage = '';
-        this.renererEntireTree(this._state)
-    },
-    _updateMessageField(newMessage) {
-        this._state.dialogs.newMessage = newMessage;
-        this.renererEntireTree(this._state)
-    },
 
     subscribe(observer)  {
         this.renererEntireTree = observer;
     },
 
     dispatch(action) {
-        if(action.type === 'ADD-POST') {
-            this._addPost()
-        } else if (action.type === 'UPDATE-TEXTAREA') {
-            this._updateTextarea(action.newText)
-        } else if (action.type === 'ADD-NEW-MESSAGE') {
-            this._addNewMessage()
-        } else if (action.type === 'UPDATE-MESSAGE-FIELD') {
-            this._updateMessageField(action.newMessage)
-        }
+        this._state.profile = profileReducer(this._state.profile, action);
+        this._state.dialogs = dialogsReducer(this._state.dialogs, action);
+        this._state.navbar = sidebarReducer(this._state.navbar, action);
+
+        this.renererEntireTree(this._state);
     }
 }
 

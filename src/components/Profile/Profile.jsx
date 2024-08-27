@@ -4,6 +4,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import PersonalData from "./PersonalData/PersonalData";
 
 const Profile = (props) => {
+
     return (
         <div className={s.content}>
             <img src="https://www.shutterstock.com/shutterstock/photos/2160328801/display_1500/stock-vector-abstract-modern-blue-horizontal-banner-background-with-geometric-diagonal-overlay-layer-and-glowing-2160328801.jpg" alt=""/>
