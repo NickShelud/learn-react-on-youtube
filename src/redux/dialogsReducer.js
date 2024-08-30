@@ -1,7 +1,25 @@
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 const UPDATE_MESSAGE_FIELD = 'UPDATE-MESSAGE-FIELD';
 
-export const dilogsReducer = (state, action) => {
+let initialReducer = {
+    dialog: [
+        {name: 'Nastya', id: 1},
+        {name: 'Ron', id: 2},
+        {name: 'Alex', id: 3},
+        {name: 'John', id: 4},
+        {name: 'James', id: 5},
+        {name: 'TestPerson', id: 6},
+    ],
+    messages: [
+        {message: 'Hi, how are you'},
+        {message: "i'm fine. And you?"},
+        {message: "I'm good"},
+        {message: "test message"},
+    ],
+    newMessage: ''
+}
+
+export const dilogsReducer = (state = initialReducer, action) => {
 
     if (action.type === 'ADD-NEW-MESSAGE') {
         let newMessage = {

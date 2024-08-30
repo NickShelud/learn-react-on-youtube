@@ -1,7 +1,16 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXTAREA = 'UPDATE-TEXTAREA';
 
-const profileReducer = (state, action) => {
+let initialReducer = {
+    posts: [
+        {id: 1, message: 'Hi, how are you?', likeCount: 5},
+        {id: 2, message: "It's my first post", likeCount: 10},
+        {id: 3, message: "Test post", likeCount: 15},
+    ],
+    newPostText: ''
+}
+
+const profileReducer = (state = initialReducer, action) => {
     if(action.type === 'ADD-POST') {
         let newPost = {
             id: 4,

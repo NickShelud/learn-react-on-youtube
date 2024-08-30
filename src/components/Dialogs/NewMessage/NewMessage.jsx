@@ -1,6 +1,6 @@
 import React from "react";
 import s from './NewMessage.module.css'
-import {addNewMessageActionCreater, updateMessageFieldActionCreater} from "../../../redux/state";
+import {addNewMessageActionCreater, updateMessageFieldActionCreater} from "../../../redux/store";
 
 let newMessageElement = React.createRef();
 

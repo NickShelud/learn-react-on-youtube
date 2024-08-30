@@ -1,6 +1,6 @@
 import React from "react";
 import s from './NewPost.module.css'
-import {addPostActionCreater, updateTextareaActionCreater} from "../../../../redux/state";
+import {addPostActionCreater, updateTextareaActionCreater} from "../../../../redux/store";
 
 const NewPost = (props) => {
 
